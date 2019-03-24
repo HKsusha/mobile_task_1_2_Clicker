@@ -22,10 +22,22 @@
             android:text="Hello World!"/>
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/AdditionBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Button"/>
+            android:text="Addition"/>
+
+        <Button
+            android:id="@+id/SubtractionBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Subtraction"/>
+
+        <Button
+            android:id="@+id/ResetBtn"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:background="@drawable/reset"/>
 
     </LinearLayout>
 

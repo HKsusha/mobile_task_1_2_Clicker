@@ -10,7 +10,9 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
 
     TextView mainText;
-    Button mainBtn;
+    Button AdditionBtn;
+    Button SubtractionBtn;
+    Button ResetBtn;
 
     private long score = 0;
 
@@ -20,19 +22,51 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         mainText = (TextView) findViewById(R.id.mainText);
-        mainBtn = (Button) findViewById(R.id.button);
+        AdditionBtn = (Button) findViewById(R.id.AdditionBtn);
+        SubtractionBtn = (Button) findViewById(R.id.SubtractionBtn);
+        ResetBtn = (Button) findViewById(R.id.ResetBtn);
 
 
-        View.OnClickListener clickListener = new View.OnClickListener() {
+        View.OnClickListener AddListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 score ++;
-                String s = "Кликов: " + score;
+                String s;
+                if (score % 10 > 1 && score % 10 < 5 && (score % 100 > 14 || score % 100 < 12)) {
+                    s = "Кнопка нажата " + score + " раза";
+                } else {
+                    s = "Кнопка нажата " + score + " раз";
+                }
                 mainText.setText(s.toCharArray(),0, s.length());
             }
         };
 
-        mainBtn.setOnClickListener(clickListener);
+        View.OnClickListener ReduceListener = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                score --;
+                String s;
+                if (score % 10 > 1 && score % 10 < 5 && (score % 100 > 14 || score % 100 < 12)) {
+                    s = "Кнопка нажата " + score + " раза";
+                } else {
+                    s = "Кнопка нажата " + score + " раз";
+                }
+                mainText.setText(s.toCharArray(),0, s.length());
+            }
+        };
+
+        View.OnClickListener ZeroListener = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                score = 0;
+                String s = "Кнопка нажата " + score + " раз";
+                mainText.setText(s.toCharArray(),0, s.length());
+            }
+        };
+
+        AdditionBtn.setOnClickListener(AddListener);
+        SubtractionBtn.setOnClickListener(ReduceListener);
+        ResetBtn.setOnClickListener(ZeroListener);
 
     }
 }
